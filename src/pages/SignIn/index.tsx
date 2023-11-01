@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { View, Button, StyleSheet } from "react-native";
-import { signIn} from '../../service/auth';
-import AuthContext from "../../contexts/auth";
+import { useAuth } from "../../contexts/auth";
 
 const SignIn: React.FC = () => {
-    const { signed, signIn } = useContext(AuthContext)
+    const { signed, user, signIn } = useAuth();
 
     console.log("signed", signed);
+    console.log("user", user);
 
     function handleSignIn() {
         signIn();
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-  });
+});
